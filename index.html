@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI E-Commerce Toolkit - 50+ Battle-Tested AI Prompts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #00d4ff;
+            --accent-hover: #00b8e6;
+            --border: #333333;
+            --gradient: linear-gradient(135deg, #00d4ff 0%, #0088cc 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%2300d4ff;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%2300d4ff;stop-opacity:0"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23a)"/></svg>') no-repeat center center;
+            background-size: cover;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        /* What's Inside */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 3rem;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .category-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Why Different */
+        .why-different {
+            background: var(--bg-secondary);
+        }
+
+        .benefits-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 24px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .benefit-icon {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            text-align: center;
+            padding: 60px 0;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+        }
+
+        .proof-text {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--bg-card);
+            padding: 24px 32px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: inline-block;
+        }
+
+        /* Pricing */
+        .pricing-card {
+            max-width: 400px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .included-list {
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .included-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .included-item::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 0.8rem;
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--bg-secondary);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-answer {
+            padding: 20px 24px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-primary);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            color: var(--text-secondary);
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .benefit-icon {
+                margin: 0 0 1rem 0;
+            }
+            
+            .pricing-card {
+                margin: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>The AI E-Commerce Toolkit</h1>
+                <p class="tagline">50+ Battle-Tested AI Prompts That Actually Sell Products</p>
+                <a href="#" class="cta-button">Get Your Toolkit - $29</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Inside Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">What's Inside</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <span class="category-icon">📝</span>
+                    <h3 class="category-title">Product Descriptions</h3>
+                    <p class="category-desc">Convert features into benefits that actually drive sales. Tested on thousands of product listings.</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📧</span>
+                    <h3 class="category-title">Email Marketing</h3>
+                    <p class="category-desc">Welcome sequences, cart abandonment, win-back campaigns. Real templates with proven conversion rates.</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📱</span>
+                    <h3 class="category-title">Social Media</h3>
+                    <p class="category-desc">Instagram captions, Facebook ads, TikTok hooks. Content that stops the scroll and drives traffic.</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🔍</span>
+                    <h3 class="category-title">SEO Content</h3>
+                    <p class="category-desc">Blog posts, category descriptions, meta titles. Rank higher while sounding human.</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎯</span>
+                    <h3 class="category-title">Ad Copy</h3>
+                    <p class="category-desc">Facebook, Google, Instagram ads. Headlines and descriptions that lower your cost-per-click.</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">💬</span>
+                    <h3 class="category-title">Customer Service</h3>
+                    <p class="category-desc">Handle complaints, refunds, and support tickets. Turn problems into positive experiences.</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📊</span>
+                    <h3 class="category-title">Analytics & Reports</h3>
+                    <p class="category-desc">Turn Shopify data into actionable insights. Monthly reports that actually help you decide what to do next.</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎨</span>
+                    <h3 class="category-title">Creative Campaigns</h3>
+                    <p class="category-desc">Product launches, seasonal promotions, brand storytelling. Stand out in crowded markets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Is Different -->
+    <section class="section why-different">
+        <div class="container">
+            <h2 class="section-title">Why This Is Different</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <span class="benefit-icon">⚡</span>
+                    <div class="benefit-text">
+                        <strong>Built by someone who actually runs e-commerce AI tools.</strong> These aren't theoretical prompts — they're battle-tested on real Shopify stores generating real revenue.
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🚫</span>
+                    <div class="benefit-text">
+                        <strong>Not generic ChatGPT advice.</strong> Each prompt is specifically crafted for e-commerce, with context and variables that matter for online stores.
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">📋</span>
+                    <div class="benefit-text">
+                        <strong>Includes real examples.</strong> See exactly how each prompt works with actual before/after examples from live stores.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="proof-text">
+                Built from experience managing 1000+ product listings
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Get Your Toolkit</h2>
+            <div class="pricing-card">
+                <div class="price">$29</div>
+                <div class="price-subtitle">One-time purchase</div>
+                
+                <div class="included-list">
+                    <div class="included-item">50+ battle-tested AI prompts</div>
+                    <div class="included-item">Real examples from live stores</div>
+                    <div class="included-item">Copy-paste templates</div>
+                    <div class="included-item">Instant download (PDF + Notion)</div>
+                    <div class="included-item">30-day money-back guarantee</div>
+                    <div class="included-item">Free updates for life</div>
+                </div>
+                
+                <a href="#" class="cta-button">Get Instant Access - $29</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Do these work with any e-commerce platform?</div>
+                    <div class="faq-answer">While optimized for Shopify, these prompts work with any e-commerce platform — WooCommerce, BigCommerce, Magento, or even Amazon listings. The principles are universal.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if I'm not technical?</div>
+                    <div class="faq-answer">Perfect! These are designed for store owners, not developers. Just copy, paste, and customize. No coding required.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How are these different from free ChatGPT prompts online?</div>
+                    <div class="faq-answer">Free prompts are generic. These are laser-focused on e-commerce with specific variables, context, and proven results. Plus real examples so you can see exactly what good output looks like.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is there a money-back guarantee?</div>
+                    <div class="faq-answer">Yes! 30 days, no questions asked. If these prompts don't save you hours and improve your content, just email and get your money back.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I get the toolkit?</div>
+                    <div class="faq-answer">Instant download after purchase. You'll get a PDF version and access to a Notion workspace with all prompts organized and searchable.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>Created by <a href="https://twitter.com/mrfrankbot">@mrfrankbot</a> • © 2025 All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
