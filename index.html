@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The AI E-Commerce Toolkit - 50+ Battle-Tested AI Prompts</title>
+    <title>The AI E-Commerce Toolkit - 60+ Battle-Tested AI Prompts</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -22,6 +22,8 @@
             --accent-hover: #00b8e6;
             --border: #333333;
             --gradient: linear-gradient(135deg, #00d4ff 0%, #0088cc 100%);
+            --success: #00ff88;
+            --warning: #ffaa00;
         }
 
         body {
@@ -40,7 +42,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 80px 0;
+            padding: 80px 0 60px;
             text-align: center;
             background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
             position: relative;
@@ -92,11 +94,147 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+            position: relative;
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .guarantee-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--success);
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+
+        /* Product Preview Section */
+        .product-preview {
+            padding: 60px 0;
+            background: var(--bg-secondary);
+        }
+
+        .preview-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .preview-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .preview-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .prompt-display {
+            background: #000;
+            border-radius: 12px;
+            padding: 24px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border: 1px solid #333;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .prompt-label {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .prompt-text {
+            color: #e6e6e6;
+            white-space: pre-line;
+        }
+
+        .prompt-variables {
+            color: var(--warning);
+            font-weight: 500;
+        }
+
+        .preview-caption {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Free Sample Section */
+        .free-sample {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 2rem 0;
+            border: 2px solid var(--accent);
+            text-align: center;
+        }
+
+        .sample-title {
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .sample-form {
+            display: flex;
+            gap: 12px;
+            max-width: 400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .sample-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .sample-button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sample-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
         }
 
         /* Section Styles */
@@ -185,27 +323,43 @@
             line-height: 1.6;
         }
 
-        /* Social Proof */
+        /* Enhanced Social Proof */
         .social-proof {
             text-align: center;
-            padding: 60px 0;
+            padding: 80px 0;
             background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
         }
 
-        .proof-text {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-            font-weight: 600;
-            color: var(--accent);
+        .credibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 2rem;
+        }
+
+        .credibility-item {
             background: var(--bg-card);
-            padding: 24px 32px;
+            padding: 24px;
             border-radius: 12px;
             border: 1px solid var(--border);
-            display: inline-block;
+        }
+
+        .credibility-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .credibility-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
         /* Pricing */
         .pricing-card {
-            max-width: 400px;
+            max-width: 450px;
             margin: 0 auto;
             background: var(--bg-card);
             border: 2px solid var(--accent);
@@ -255,6 +409,26 @@
             color: var(--accent);
             font-weight: bold;
             margin-right: 0.8rem;
+        }
+
+        .format-details {
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .format-title {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .format-list {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         /* FAQ */
@@ -309,14 +483,32 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero {
-                padding: 60px 0;
+                padding: 60px 0 40px;
             }
             
             .section {
                 padding: 60px 0;
             }
+
+            .product-preview {
+                padding: 40px 0;
+            }
+
+            .preview-card {
+                padding: 24px;
+            }
+
+            .prompt-display {
+                font-size: 0.8rem;
+                padding: 20px;
+            }
             
             .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .credibility-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
@@ -332,6 +524,16 @@
             
             .pricing-card {
                 margin: 0 16px;
+                max-width: none;
+            }
+
+            .sample-form {
+                flex-direction: column;
+                max-width: none;
+            }
+
+            .sample-input {
+                min-width: auto;
             }
         }
     </style>
@@ -342,8 +544,39 @@
         <div class="container">
             <div class="hero-content">
                 <h1>The AI E-Commerce Toolkit</h1>
-                <p class="tagline">50+ Battle-Tested AI Prompts That Actually Sell Products</p>
-                <a href="#" class="cta-button">Get Your Toolkit - $29</a>
+                <p class="tagline">60+ Battle-Tested AI Prompts That Actually Sell Products</p>
+                <a href="#pricing" class="cta-button">
+                    Get Your Toolkit - $29
+                    <span class="guarantee-badge">30-Day Guarantee</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Preview Section -->
+    <section class="product-preview">
+        <div class="container">
+            <div class="preview-card">
+                <div class="preview-header">
+                    <h2 class="preview-title">See What's Inside</h2>
+                    <p class="preview-subtitle">Here's one of our most powerful prompts in action</p>
+                </div>
+                
+                <div class="prompt-display">
+                    <span class="prompt-label">The Feature-to-Benefit Transformer</span>
+                    <div class="prompt-text">"You are a senior e-commerce copywriter who specializes in <span class="prompt-variables">{product_category}</span>. Write a product description for <span class="prompt-variables">{product_name}</span> that opens with a one-sentence hook addressing <span class="prompt-variables">{target_audience}</span>'s biggest pain point, converts features into emotional benefits, uses sensory language, includes subtle urgency without being sleazy, and ends with a clear CTA."</div>
+                </div>
+                
+                <p class="preview-caption">This is 1 of 60+ prompts designed to transform your e-commerce content</p>
+            </div>
+
+            <!-- Free Sample Offer -->
+            <div class="free-sample">
+                <h3 class="sample-title">Not Sure? Get 5 Free Sample Prompts</h3>
+                <div class="sample-form">
+                    <input type="email" class="sample-input" placeholder="Enter your email">
+                    <button class="sample-button" onclick="window.location.href='mailto:mrfrankbot@gmail.com?subject=Free Sample Request&body=Please send me 5 free sample prompts from the AI E-Commerce Toolkit.'">Get Free Samples</button>
+                </div>
             </div>
         </div>
     </section>
@@ -424,25 +657,44 @@
         </div>
     </section>
 
-    <!-- Social Proof -->
+    <!-- Enhanced Social Proof -->
     <section class="social-proof">
         <div class="container">
-            <div class="proof-text">
-                Built from experience managing 1000+ product listings
+            <h2 class="section-title">Built by Practitioners, Not Content Farms</h2>
+            <div class="credibility-grid">
+                <div class="credibility-item">
+                    <span class="credibility-icon">🏪</span>
+                    <div class="credibility-text">Built from managing 1,000+ product listings on Shopify</div>
+                </div>
+                <div class="credibility-item">
+                    <span class="credibility-icon">📚</span>
+                    <div class="credibility-text">8 categories, 60+ prompts with real example outputs</div>
+                </div>
+                <div class="credibility-item">
+                    <span class="credibility-icon">🤖</span>
+                    <div class="credibility-text">Created by an AI team that actually runs e-commerce tools — not a content farm</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing -->
-    <section class="section">
+    <section class="section" id="pricing">
         <div class="container">
             <h2 class="section-title">Get Your Toolkit</h2>
             <div class="pricing-card">
                 <div class="price">$29</div>
                 <div class="price-subtitle">One-time purchase</div>
                 
+                <div class="format-details">
+                    <div class="format-title">Delivered as:</div>
+                    <div class="format-list">
+                        Markdown files + Quick Start Guide + Notion Template + Customization Guide
+                    </div>
+                </div>
+                
                 <div class="included-list">
-                    <div class="included-item">50+ battle-tested AI prompts</div>
+                    <div class="included-item">60+ battle-tested AI prompts</div>
                     <div class="included-item">Real examples from live stores</div>
                     <div class="included-item">Copy-paste templates</div>
                     <div class="included-item">Instant download (PDF + Notion)</div>
@@ -450,7 +702,14 @@
                     <div class="included-item">Free updates for life</div>
                 </div>
                 
-                <a href="#" class="cta-button">Get Instant Access - $29</a>
+                <a href="#" class="cta-button">
+                    Get Instant Access - $29
+                    <span class="guarantee-badge">30-Day Money-Back</span>
+                </a>
+                
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    30-Day Money-Back Guarantee. No questions asked.
+                </p>
             </div>
         </div>
     </section>
